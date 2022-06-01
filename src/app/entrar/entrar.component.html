@@ -12,6 +12,7 @@
               class="form-control"
               name="usuario"
               placeholder="Digite seu usuário"
+              [(ngModel)]="usuarioLogin.usuario"
             />
           </div>
           <div class="form-group">
@@ -21,10 +22,13 @@
               class="form-control"
               name="senha"
               placeholder="Digite sua senha"
+              [(ngModel)]="usuarioLogin.senha"
             />
           </div>
           <div class="d-flex justify-content-center">
-            <button type="submit" class="btn btn-success">Entrar</button>
+            <button type="submit" class="btn btn-success" (click)="entrar()">
+              Entrar
+            </button>
           </div>
           <hr class="mt-5 mb-5" />
           <p class="text-center">
