@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.prod';
 import { Usuario } from '../model/Usuario';
 import { UsuarioLogin } from '../model/UsuarioLogin';
 
@@ -14,11 +15,15 @@ export class AuthService {
   ) { }
 
   entrar(usuarioLogin: UsuarioLogin): Observable<UsuarioLogin> {
-    return this.http.post<UsuarioLogin>("https://fmrm-blog-pessoal.herokuapp.com/usuarios/logar", usuarioLogin)
+    return this.http.post<UsuarioLogin>("https://fmrm-blog-pessoal.herokuapp.com/usuarios/logar", usuarioLogin);
   }
 
   cadastrar(usuario: Usuario) {
-    return this.http.post<Usuario>('https://fmrm-blog-pessoal.herokuapp.com/usuarios/cadastrar', usuario)
+    return this.http.post<Usuario>('https://fmrm-blog-pessoal.herokuapp.com/usuarios/cadastrar', usuario);
 
+  }
+
+  logado() {
+    return environment.token !== '';
   }
 }
