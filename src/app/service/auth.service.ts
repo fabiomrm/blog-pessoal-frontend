@@ -24,6 +24,11 @@ export class AuthService {
   }
 
   logado() {
-    return environment.token !== '';
+    let ok: boolean = false
+    if (environment.token != '') {
+      ok = true
+    }
+    return ok
+
   }
 }
