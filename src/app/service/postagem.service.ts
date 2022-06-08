@@ -28,4 +28,12 @@ export class PostagemService {
     return this.http.post<Postagem>('https://fmrm-blog-pessoal.herokuapp.com/postagens', postagem, this.token);
   }
 
+  putPostagem(postagem: Postagem): Observable<Postagem> {
+    return this.http.put<Postagem>('https://fmrm-blog-pessoal.herokuapp.com/postagens', postagem, this.token);
+  }
+
+  deletePostagem(id: number) {
+    return this.http.delete(`https://fmrm-blog-pessoal.herokuapp.com/postagens/${id}`, this.token);
+  }
+
 }
